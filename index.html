@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>CV Iksan Maulana - Roblox Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* TEMA HOGWARTS LEGACY */
+        :root {
+            --bg-dark: #0f1319; 
+            --bg-panel: rgba(22, 27, 34, 0.85);
+            --gold-primary: #d4af37; 
+            --gold-muted: #aa8c2c;
+            --gold-bright: #fef1a6; 
+            --text-main: #e8e3d3; 
+            --text-muted: #a39d8d;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at center, #1b222c 0%, #0f1319 100%);
+            font-family: 'Lora', serif;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-top: 0;
+            letter-spacing: 1px;
+        }
+
+        /* ANIMASI GRADIENT MENGALIR */
+        @keyframes flowGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ANIMASI CAHAYA BERDENYUT (PULSE GLOW) */
+        @keyframes pulseGlow {
+            0% { border-color: var(--gold-primary); box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); }
+            50% { border-color: var(--gold-bright); box-shadow: 0 0 15px rgba(254, 241, 166, 0.6); }
+            100% { border-color: var(--gold-primary); box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); }
+        }
+
+        @keyframes pulseDot {
+            0% { background: var(--gold-primary); box-shadow: 0 0 5px var(--gold-primary); }
+            50% { background: var(--gold-bright); box-shadow: 0 0 12px var(--gold-bright); }
+            100% { background: var(--gold-primary); box-shadow: 0 0 5px var(--gold-primary); }
+        }
+
+        /* WRAPPER UNTUK EFEK BORDER MENGALIR */
+        .cv-glow-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            padding: 2px; 
+            border-radius: 10px;
+            background: linear-gradient(90deg, #d4af37, #fef1a6, #d4af37, #8c6d17, #d4af37);
+            background-size: 300% 300%;
+            animation: flowGradient 5s ease infinite; 
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            display: flex;
+            position: relative;
+        }
+
+        .cv-container {
+            width: 100%;
+            background: var(--bg-panel);
+            display: flex;
+            border-radius: 8px; 
+            position: relative;
+        }
+
+        /* Ornamen Garis Sudut ala UI Game */
+        .cv-container::before, .cv-container::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--gold-primary);
+            animation: pulseGlow 3s infinite;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .cv-container::before {
+            top: 10px; left: 10px;
+            border-right: none; border-bottom: none;
+        }
+        .cv-container::after {
+            bottom: 10px; right: 10px;
+            border-left: none; border-top: none;
+        }
+
+        /* KOLOM KIRI (Sidebar) */
+        .left-column {
+            width: 35%;
+            background: rgba(10, 12, 16, 0.6);
+            padding: 40px 30px;
+            border-right: 1px solid var(--gold-primary);
+            animation: pulseGlow 4s infinite alternate; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-pic-container {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px solid var(--gold-primary);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            animation: pulseGlow 4s infinite;
+            overflow: hidden;
+            margin-bottom: 40px;
+            background-color: #000;
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .left-section {
+            width: 100%;
+            margin-bottom: 35px;
+        }
+
+        .left-section h3 {
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--gold-muted);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .left-section p, .left-section ul {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 10px 0;
+            color: var(--text-main);
+            text-align: left;
+        }
+
+        .left-section ul {
+            padding-left: 20px;
+            list-style-type: square;
+        }
+
+        .left-section ul li::marker {
+            color: var(--gold-primary);
+        }
+
+        /* KOLOM KANAN (Utama) */
+        .right-column {
+            width: 65%;
+            padding: 50px 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-title h1 {
+            font-size: 2.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .header-title h4 {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .profile-desc {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            text-align: justify;
+        }
+
+        .experience-section h2 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--gold-primary);
+            animation: pulseGlow 3s infinite;
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+        }
+
+        .job-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 1px solid var(--gold-muted);
+        }
+
+        /* Titik emas menyala */
+        .job-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 9px;
+            height: 9px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            animation: pulseDot 2.5s infinite; 
+        }
+
+        .job-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold-primary);
+            font-weight: bold;
+            margin: 0 0 3px 0;
+        }
+
+        .job-company {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 0 0 3px 0;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 0 0 8px 0;
+        }
+
+        .job-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .portfolio-link-container {
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            border-top: 1px dashed var(--gold-muted);
+        }
+
+        .portfolio-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--gold-primary);
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border: 2px solid var(--gold-primary);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 0 rgba(212, 175, 55, 0), 0 0 10px rgba(0,0,0,0.5);
+            animation: pulseGlow 3s infinite;
+        }
+
+        .portfolio-btn:hover {
+            background: rgba(212, 175, 55, 0.15);
+            box-shadow: inset 0 0 20px rgba(254, 241, 166, 0.4), 0 0 20px rgba(254, 241, 166, 0.6);
+            text-shadow: 0 0 8px var(--gold-bright);
+            cursor: pointer;
+            border-color: var(--gold-bright);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-glow-wrapper">
+        <div class="cv-container">
+            
+            <div class="left-column">
+                <div class="profile-pic-container">
+                <img src="foto-iksan.jpg.jpeg" alt="Foto Iksan Maulana">
+                </div>
+
+                <div class="left-section">
+                    <h3>Kontak</h3>
+                    <p>📞 +62-857-7570-3845</p>
+                    <p>✉️ iksanmlv@gmail.com</p>
+                    <p>📍 Jl karyawan 1 Blok A.6</p>
+                </div>
+
+                <div class="left-section">
+                    <h3>Pendidikan</h3>
+                    <p><strong>SMK Prima Unggul</strong><br>2018 - 2021</p>
+                    <p><strong>SMP N 3 Purbalingga</strong><br>2015 - 2018</p>
+                    <p><strong>SD N 2 Bojong</strong><br>2009 - 2015</p>
+                </div>
+
+                <div class="left-section">
+                    <h3>Skill</h3>
+                    <ul>
+                        <li>Roblox Studio & Lua Scripting</li>
+                        <li>3D Environment Design</li>
+                        <li>Adobe Premiere</li>
+                        <li>Adobe Photoshop</li>
+                        <li>CapCut (Video Editing)</li>
+                        <li>Canva</li>
+                        <li>Video konten marketing</li>
+                        <li>Basic Mixology & Coffee Brewing</li>
+                        <li>Membuat produk beverage</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right-column">
+                
+                <div class="header-title">
+                    <h1>Iksan Maulana</h1>
+                    <h4>Roblox Developer | 3D Environment Designer | Beverage Specialist</h4>
+                </div>
+
+                <div class="profile-desc">
+                    Saya adalah Roblox Developer dan 3D Environment Designer dengan latar belakang kuat di industri <i>hospitality</i> (Bartender & Barista) serta <i>Content Creator</i>. Saya memiliki kemampuan merancang dunia virtual interaktif menggunakan Lua scripting, sekaligus berpengalaman meracik minuman, mengatur stok, dan menghadapi pelanggan secara langsung. Kombinasi latar belakang ini membuat saya terbiasa bekerja secara kreatif, cepat, dan berorientasi pada kepuasan pengguna. Siap belajar dan berkontribusi secara profesional baik di industri pengembangan game maupun kreatif.
+                </div>
+
+                <div class="experience-section">
+                    <h2>Pengalaman Kerja</h2>
+
+                    <div class="job-item">
+                        <p class="job-title">Freelance Roblox Developer & 3D Designer</p>
+                        <p class="job-company">Independent</p>
+                        <p class="job-date">2025 - Sekarang</p>
+                        <p class="job-desc">
+                            Mengembangkan berbagai proyek game di Roblox. Merancang dunia virtual, <i>scripting</i>, serta mendesain map tematik untuk berbagai klien dan proyek pribadi secara kreatif.
+                        </p>
+                    </div>
+
+                    <div class="job-item">
+                        <p class="job-title">Bar academy</p>
+                        <p class="job-company">HOLYWINGS GROUP</p>
+                        <p class="job-date">15-03-2025 - 15-04-2025</p>
+                        <p class="job-desc">Melakukan pelatihan basic knowledge semua spirit, wine. Mempelajari teknikal pembuatan, historikal, pouring dan pairing. Memahami Cocktail dan sejarahnya.</p>
+                    </div>
+
+                    <div class="job-item">
+                        <p class="job-title">Barista</p>
+                        <p class="job-company">TOKYO SKIPJACK</p>
+                        <p class="job-date">05-07-2024 - 28-12-2024</p>
+                        <p class="job-desc">Menjaga kualitas bahan baku, melakukan estimasi pengorderan, melakukan Invetory harian dan bulanan. Memimpin tim, mengatur operasional bar kopi, memastikan pelayanan prima serta kualitas minuman yang konsisten.</p>
+                    </div>
+
+                    <div class="job-item">
+                        <p class="job-title">Server - Barista</p>
+                        <p class="job-company">EXCELSO MULTIRASA</p>
+                        <p class="job-date">10-04-2023 - 28-06-2024</p>
+                        <p class="job-desc">Bertanggung jawab dalam proses penyediaan kopi, pelayanan pelanggan, melakukan invetory, pengorderan dan menjaga kualitas produk di bar kopi.</p>
+                    </div>
+
+                    <div class="job-item">
+                        <p class="job-title">Bartender</p>
+                        <p class="job-company">PT SARI MELATI KENCANA (PIZZA HUT)</p>
+                        <p class="job-date">01-02-2021 - 28-03-2023</p>
+                        <p class="job-desc">Meracik minuman, menjaga stok bahan, dan melayani pelanggan secara langsung di outlet restoran.</p>
+                    </div>
+
+                    <div class="job-item">
+                        <p class="job-title">Content Creator Marketing</p>
+                        <p class="job-company">NANOTECH INDONESIA</p>
+                        <p class="job-date">2019 - 2020</p>
+                        <p class="job-desc">Membuat konten promosi dan video untuk pemasaran digital, fokus pada branding dan engagement media sosial.</p>
+                    </div>
+
+                </div>
+
+                <div class="portfolio-link-container">
+                    <a href="https://iksan-maulana.vercel.app/" class="portfolio-btn" target="_blank">Lihat Portofolio Lengkap ✦</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
