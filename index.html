@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>CV Iksan Maulana - Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* TEMA SILICON VALLEY DARK MODE */
+        :root {
+            --bg-dark: #0a0a0a; 
+            --bg-panel: #111111;
+            --border-color: #27272a;
+            --accent-primary: #3b82f6; /* Modern Blue */
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); /* Blue to Purple */
+            --text-main: #f4f4f5; 
+            --text-muted: #a1a1aa;
+            --text-highlight: #60a5fa;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            margin-top: 0;
+            letter-spacing: -0.02em;
+        }
+
+        /* WRAPPER ELEGAN TANPA ANIMASI ALAY */
+        .cv-wrapper {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* GARIS GRADIENT DI ATAS */
+        .cv-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            z-index: 10;
+        }
+
+        /* KOLOM KIRI (Sidebar) */
+        .left-column {
+            width: 35%;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 40px 30px;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-pic-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            padding: 4px;
+            background: var(--accent-gradient);
+            margin-bottom: 30px;
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-panel);
+        }
+
+        .left-section {
+            width: 100%;
+            margin-bottom: 35px;
+        }
+
+        .left-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-highlight);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .left-section p, .left-section ul {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0 0 10px 0;
+            color: var(--text-muted);
+            text-align: left;
+        }
+
+        .left-section strong {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .left-section ul {
+            padding-left: 15px;
+            list-style-type: disc;
+        }
+
+        /* KOLOM KANAN (Utama) */
+        .right-column {
+            width: 65%;
+            padding: 50px 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .header-title h4 {
+            font-size: 1.1rem;
+            color: var(--accent-primary);
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .profile-desc {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        .experience-section h2 {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .job-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        /* Titik timeline modern */
+        .job-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-primary);
+            border-radius: 50%;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .job-title {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .job-company {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent-primary);
+            margin: 0 0 8px 0;
+        }
+
+        .job-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .portfolio-link-container {
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .portfolio-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--bg-main);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-btn:hover {
+            background: var(--text-main);
+            color: var(--bg-dark);
+            border-color: var(--text-main);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-wrapper">
+        
+        <div class="left-column">
+            <div class="profile-pic-container">
+                <img src="foto-iksan.jpg.jpeg" alt="Iksan Maulana">
+            </div>
+
+            <div class="left-section">
+                <h3>Contact</h3>
+                <p>📞 +62 857-7570-3845</p>
+                <p>✉️ iksanmlv@gmail.com</p>
+                <p>📍 Tangerang, Banten, Indonesia</p>
+            </div>
+
+            <div class="left-section">
+                <h3>Core Technologies</h3>
+                <ul>
+                    <li>Flutter & Dart</li>
+                    <li>Firebase (Real-time DB & Auth)</li>
+                    <li>AI-Accelerated Workflows (LLMs)</li>
+                    <li>RESTful API Integration</li>
+                    <li>State Management</li>
+                    <li>Luau Scripting (Roblox)</li>
+                </ul>
+            </div>
+
+            <div class="left-section">
+                <h3>Additional Skills</h3>
+                <ul>
+                    <li>Premium UI/UX Aesthetics</li>
+                    <li>3D Environment Architecture</li>
+                    <li>F&B Operations & Inventory Logic</li>
+                    <li>Video & Content Marketing</li>
+                    <li>Adobe Suite & DaVinci Resolve</li>
+                </ul>
+            </div>
+
+            <div class="left-section">
+                <h3>Education</h3>
+                <p><strong>SMK Prima Unggul</strong><br>2018 - 2021</p>
+                <p><strong>SMP N 3 Purbalingga</strong><br>2015 - 2018</p>
+                <p><strong>SD N 2 Bojong</strong><br>2009 - 2015</p>
+            </div>
+        </div>
+
+        <div class="right-column">
+            
+            <div class="header-title">
+                <h1>Iksan Maulana</h1>
+                <h4>Full-Stack Developer | AI-Forward Builder</h4>
+            </div>
+
+            <div class="profile-desc">
+                I am a product-driven Full-Stack Developer bridging the gap between robust digital systems and real-world business operations. Leveraging extensive domain knowledge in the F&B and hospitality industry, I architected <strong>Nata Élevé</strong>, a premium cross-platform POS ecosystem using Flutter and Firebase. Supported by an <strong>AI-accelerated development workflow</strong>, I transform manual operational bottlenecks into efficient, scalable software solutions. Combined with my proven experience in engineering complex multiplayer logics in Luau (Roblox), I bring a unique blend of backend architecture, high-end UI/UX aesthetics, and a relentless focus on shipping production-ready products.
+            </div>
+
+            <div class="experience-section">
+                <h2>Experience & Projects</h2>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <p class="job-title">Lead Full-Stack Developer</p>
+                        <p class="job-date">2024 - Present</p>
+                    </div>
+                    <p class="job-company">Nata Élevé (Independent Digital Solution)</p>
+                    <p class="job-desc">
+                        Architected and deployed a premium Point of Sale (POS) ecosystem from scratch using <strong>Flutter & Firebase</strong>. Successfully integrated hardware-level Bluetooth thermal printing, real-time inventory synchronization, and designed a custom high-end UI/UX. Utilized AI-assisted coding workflows to accelerate development time by 40% while maintaining scalable architecture.
+                    </p>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <p class="job-title">Systems Architect & Game Developer</p>
+                        <p class="job-date">2021 - Present</p>
+                    </div>
+                    <p class="job-company">Betterflyuu Digital (International Clients)</p>
+                    <p class="job-desc">
+                        Engineered complex multiplayer environments and gameplay mechanics using <strong>Luau (Roblox Studio)</strong>. Managed full-cycle development from 3D environment architecture to server-client data synchronization and user interface implementation for international player bases.
+                    </p>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <p class="job-title">Content Creator & Marketing</p>
+                        <p class="job-date">2019 - 2020</p>
+                    </div>
+                    <p class="job-company">Nanotech Indonesia</p>
+                    <p class="job-desc">Produced promotional content and digital marketing videos focusing on social media branding and digital engagement metrics.</p>
+                </div>
+
+                <h2>Operational & Domain Expertise</h2>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <p class="job-title">Bar Academy Specialist</p>
+                        <p class="job-date">Mar 2025 - Apr 2025</p>
+                    </div>
+                    <p class="job-company">Holywings Group</p>
+                    <p class="job-desc">Conducted intensive training on product knowledge, mixology techniques, and operational standards. Gained deep insights into high-volume hospitality management.</p>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <p class="job-title">Barista & Inventory Control</p>
+                        <p class="job-date">Jul 2024 - Dec 2024</p>
+                    </div>
+                    <p class="job-company">Tokyo Skipjack</p>
+                    <p class="job-desc">Managed daily and monthly inventory forecasting, maintained raw material quality control, and ensured consistent premium product delivery in a fast-paced environment.</p>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <p class="job-title">Server & Barista</p>
+                        <p class="job-date">Apr 2023 - Jun 2024</p>
+                    </div>
+                    <p class="job-company">Excelso Multirasa</p>
+                    <p class="job-desc">Responsible for end-to-end customer service flow, product quality assurance, and bar inventory management using legacy POS systems.</p>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <p class="job-title">Bartender</p>
+                        <p class="job-date">Feb 2021 - Mar 2023</p>
+                    </div>
+                    <p class="job-company">PT Sari Melati Kencana (Pizza Hut)</p>
+                    <p class="job-desc">Executed high-speed beverage production, managed stock supplies, and maintained direct customer engagement on the operational frontlines.</p>
+                </div>
+
+            </div>
+
+            <div class="portfolio-link-container">
+                <a href="https://iksan-maulana.vercel.app/" class="portfolio-btn" target="_blank">View Full Portfolio / Nata Demo ↗</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
